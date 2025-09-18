@@ -1,12 +1,12 @@
 # daily_reminder.py
-# A simple program that reminds the user of a single, priority task
+# ALX task: single priority task reminder
 
 # Prompt for task details
 task = input("Enter your task: ")
 priority = input("Priority (high/medium/low): ").lower()
 time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-# Process the task using match-case
+# Use match-case for priority
 match priority:
     case "high":
         reminder = f"'{task}' is a high priority task"
@@ -14,14 +14,14 @@ match priority:
         reminder = f"'{task}' is a medium priority task"
     case "low":
         reminder = f"'{task}' is a low priority task"
-    case _:
+    case _:  # default case if input is invalid
         reminder = f"'{task}' has an unspecified priority"
 
-# Adjust message if the task is time-sensitive
+# Modify reminder based on time sensitivity
 if time_bound == "yes":
     reminder += " that requires immediate attention today!"
 else:
-    reminder = "Note: " + reminder + ". Consider completing it when you have free time."
+    reminder += ". Consider completing it when you have free time."
 
-# Print final reminder
+# Print final reminder exactly as expected
 print("\nReminder:", reminder)
