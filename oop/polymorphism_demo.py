@@ -1,0 +1,30 @@
+# polymorphism_demo.py
+
+import math
+
+class Shape:
+    """Base class representing a generic shape."""
+    def area(self):
+        """Placeholder method to be overridden by subclasses."""
+        raise NotImplementedError("Subclasses must implement this method")
+
+
+class Rectangle(Shape):
+    """Represents a rectangle shape."""
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        """Calculate the area of a rectangle."""
+        return self.length * self.width
+
+
+class Circle(Shape):
+    """Represents a circle shape."""
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        """Calculate the area of a circle."""
+        return math.pi * (self.radius ** 2)
