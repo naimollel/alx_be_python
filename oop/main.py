@@ -1,9 +1,11 @@
 from library_system import Book, EBook, PrintBook, Library
 from polymorphism_demo import Shape, Rectangle, Circle
+from class_static_methods_demo import Calculator
 import math
 
+
+# --- 1. Library System Demo ---
 def library_demo():
-    # Create a Library instance
     my_library = Library()
 
     # Create instances of each type of book
@@ -16,33 +18,32 @@ def library_demo():
     my_library.add_book(digital_novel)
     my_library.add_book(paper_novel)
 
-    # List all books in the library
+    # List all books
     print("\n--- Library Collection ---")
     my_library.list_books()
 
     # Demonstrate __str__ and __repr__
     print("\n--- Book Representations ---")
-    print(classic_book)          # Uses __str__
-    print(repr(classic_book))    # Uses __repr__
+    print(classic_book)
+    print(repr(classic_book))
 
-    # Trigger __del__ by deleting a book instance
+    # Trigger __del__
     print("\n--- Deleting a book instance ---")
     del classic_book
 
 
+# --- 2. Book Class Demo ---
 def book_demo():
-    # Creating an instance of Book
     my_book = Book("1984", "George Orwell", 1949)
 
-    # Demonstrate __str__ and __repr__
     print("\n--- Book Class Demo ---")
     print(my_book)
     print(repr(my_book))
 
-    # Deleting to trigger __del__
     del my_book
 
 
+# --- 3. Polymorphism Demo ---
 def polymorphism_demo():
     shapes = [
         Rectangle(10, 5),
@@ -54,6 +55,17 @@ def polymorphism_demo():
         print(f"The area of the {shape.__class__.__name__} is: {shape.area():.2f}")
 
 
+# --- 4. Class & Static Methods Demo ---
+def calculator_demo():
+    print("\n--- Class & Static Methods Demo ---")
+    sum_result = Calculator.add(10, 5)
+    print(f"The sum is: {sum_result}")
+
+    product_result = Calculator.multiply(10, 5)
+    print(f"The product is: {product_result}")
+
+
+# --- Main Controller ---
 def main():
     print("===== Running Library System Demo =====")
     library_demo()
@@ -63,6 +75,9 @@ def main():
 
     print("\n===== Running Polymorphism Demo =====")
     polymorphism_demo()
+
+    print("\n===== Running Calculator Demo =====")
+    calculator_demo()
 
 
 if __name__ == "__main__":
